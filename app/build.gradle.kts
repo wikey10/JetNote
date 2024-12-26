@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt) // Apply the Hilt plugin
+    kotlin("kapt")
 }
 
 android {
@@ -69,4 +71,11 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation (libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
+}
+
+kapt {
+    correctErrorTypes = true
 }
